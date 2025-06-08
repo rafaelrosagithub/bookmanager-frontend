@@ -33,11 +33,10 @@ const bookReducer = createSlice({
         deleteBook(state, action: PayloadAction<number>) {
             state.books = state.books.filter(book => book.id !== action.payload);
         },
-        // Ação de atualizar um livro
         updateBook(state, action: PayloadAction<Book>) {
             const index = state.books.findIndex(book => book.id === action.payload.id);
             if (index !== -1) {
-                state.books[index] = action.payload; // Substitui o livro antigo pelo atualizado
+                state.books[index] = action.payload;
             }
         },
     },

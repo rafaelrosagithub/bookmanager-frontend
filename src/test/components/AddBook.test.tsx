@@ -1,7 +1,6 @@
 import {createBook} from "../../api/api";
 import React from "react";
 import {Provider} from "react-redux";
-import AddBook from "../../components/AddBookModal";
 import {fireEvent, render, waitFor} from "@testing-library/react";
 import {configureStore} from "@reduxjs/toolkit";
 import booksReducer from "../../features/bookReducer";

@@ -1,9 +1,14 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+export interface Author {
+    id: number;
+    name: string;
+}
 
 export interface Book {
     id: number;
     title: string;
-    author: string;
+    author: Author;
     publishedDate: string;
 }
 
@@ -28,9 +33,16 @@ const bookReducer = createSlice({
         deleteBook(state, action: PayloadAction<number>) {
             state.books = state.books.filter(book => book.id !== action.payload);
         },
+        // Ação de atualizar um livro
+        updateBook(state, action: PayloadAction<Book>) {
+            const index = state.books.findIndex(book => book.id === action.payload.id);
+            if (index !== -1) {
+                state.books[index] = action.payload; // Substitui o livro antigo pelo atualizado
+            }
+        },
     },
 });
 
-export const {setBooks, addBook, deleteBook} = bookReducer.actions;
+export const { setBooks, addBook, deleteBook, updateBook } = bookReducer.actions;
 
 export default bookReducer.reducer;

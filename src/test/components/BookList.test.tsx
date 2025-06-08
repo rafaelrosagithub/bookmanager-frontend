@@ -14,8 +14,8 @@ describe('BooksList', () => {
         initialState = {
             books: {
                 books: [
-                    { id: 1, title: 'Book One', author: 'Author One', publishedDate: '2021-01-01' },
-                    { id: 2, title: 'Book Two', author: 'Author Two', publishedDate: '2022-02-02' },
+                    { id: 1, title: 'Book One', author: { id: 1, name: 'Author One' }, publishedDate: '2021-01-01' },
+                    { id: 2, title: 'Book Two', author: { id: 2, name: 'Author Two' }, publishedDate: '2022-02-02' },
                 ],
             },
         };
@@ -30,7 +30,7 @@ describe('BooksList', () => {
     it('should render a list of books', () => {
         const { getByText } = render(
             <Provider store={store}>
-                <BooksList />
+                <BooksList onAddBookClick={() => {}} />
             </Provider>
         );
 

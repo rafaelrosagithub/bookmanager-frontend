@@ -1,10 +1,11 @@
 import {createBook} from "../../api/api";
 import React from "react";
 import {Provider} from "react-redux";
-import AddBook from "../../components/AddBook";
+import AddBook from "../../components/AddBookModal";
 import {fireEvent, render, waitFor} from "@testing-library/react";
 import {configureStore} from "@reduxjs/toolkit";
 import booksReducer from "../../features/bookReducer";
+import AddBookModal from "../../components/AddBookModal";
 
 jest.mock('../../api/api');
 jest.mock('../../features/bookReducer', () => ({
@@ -27,7 +28,9 @@ describe('BooksList', () => {
     it('should clear title, author and publishedDate when a book is added', async () => {
         const { getByPlaceholderText, getByText } = render(
             <Provider store={store}>
-                <AddBook />
+                <AddBookModal onClose={function (): void {
+                    throw new Error("Function not implemented.");
+                } } />
             </Provider>
         );
 

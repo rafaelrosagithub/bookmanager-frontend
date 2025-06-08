@@ -34,7 +34,7 @@ const BooksFilter: React.FC<BooksFilterProps> = ({ onFilter }) => {
   return (
     <div className="books-filter" style={{ marginBottom: '1rem' }}>
       <div style={{ display: 'flex', gap: '16px', marginBottom: '0.5rem' }}>
-        <div style={{ flex: 1 }}>
+        <div style={{ flex: 1, textAlign: 'left' }}>
           <label style={{ display: 'block', marginBottom: '4px' }}>Start Date:</label>
           <input
             type="date"
@@ -44,7 +44,7 @@ const BooksFilter: React.FC<BooksFilterProps> = ({ onFilter }) => {
           />
         </div>
 
-        <div style={{ flex: 1 }}>
+        <div style={{ flex: 1, textAlign: 'left' }}>
           <label style={{ display: 'block', marginBottom: '4px' }}>End Date:</label>
           <input
             type="date"
